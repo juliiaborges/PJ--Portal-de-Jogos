@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./detalhes.css">
+  <link rel="stylesheet" href="./style.css">
+  <title>Document</title>
+</head>
+<body>
+
+  <header>
+    <nav class="nav-bar">
+      <img src="./images/logo.jpg" alt="UGame">
+      <button id="button" class="hamb-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </button>
+      <ul id="list-nav" class="nav-list inactive">
+        <li class="nav-item">
+          <a href="index.html">Destaques</a>
+        </li>
+        <li class="nav-item">
+          <a href="./index.html #lancamentos">Mais jogos</a>
+        </li>
+        <li class="nav-item">
+          <a href="./index.html #plataformas">Creators</a>
+        </li>
+        <li class="nav-item">
+          <a href="./index.html #about">Sobre</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <article class="detailed-container">
+      
+
+    </article>
+  </main>
+
+  <script src="./menu.js"></script>
+  <script>
+    const apiKey = "83f4072b1dc5426a92e38f3de273059f";
+    const urlParams = new URLSearchParams(location.search);
+    let gameId = parseInt(urlParams.get('id'))
+
+    loadGame(gameId);
+
+    async function loadGame(gId){
+      try{
+        const result = await fetch(`https://api.rawg.io/api/games/${gId}?key=${apiKey}`);
+        const data = await result.json();
+
+        loadInfo(data)
+      }catch(error) {
+        throw new Error("Não foi possível obter os dados")
+      }
+    }
+
+    function loadInfo(tgame) {
+      console.log(tgame)
+
+      let info = `
+          <h1>${tgame.name}</h1>
+          <img src="${tgame.background_image}" alt="${tgame.name}">
+          <p>
+            <span class="bold">Descrição: </span>
+            ${tgame.description}
+          </p>
+          <p>
+            <span class="bold">Lançamento:  </span>
+            <time pubdate="${tgame.released}">
+              ${tgame.released}
+            </time>
+          </p>
+          <p>
+            <span class="bold">Plataformas: </span>
+            ${tgame.platforms.map(platform => " " + (platform.platform.name) )}
+          </p>
+          <p>
+            <span class="bold">Avaliação: </span>
+            ${tgame.rating}
+          </p>
+          <p>
+            <a href="${tgame.website}" target="_blank" >Site do Jogo</a>
+          </p>
+      `
+
+      document.querySelector('.detailed-container').innerHTML = info;
+    }
+  </script>
+
+</body>
+</html>

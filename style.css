@@ -1,0 +1,403 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: black;
+}
+h1{
+  padding: 15px auto 0 auto;
+  font-size: 20px;
+  align-items: center;
+}
+button,
+p,
+li{
+  font-size: 18px;
+}
+header{
+  background-color: rgb(0, 0, 0);
+padding: 0 20px;
+border-radius: 6px !important; 
+}
+.nav-bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.nav-bar .nav-list a:hover{
+  color: white;
+}
+.nav-bar img{
+  flex: 1;
+  display: block;
+  max-width: 150px;
+}
+.hamb-menu{
+  display: none;
+  background-color: transparent;
+  border:0;
+  cursor: pointer;
+}
+.hamb-menu div {
+  content: "";
+  width: 32px;
+  height: 2px;
+  background-color: white;
+  margin: 8px;
+}
+.nav-bar .nav-list{
+  flex: 4;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 20px;
+  list-style: none;
+  
+}
+.nav-bar .nav-list a {
+  text-decoration: none;
+  color: rgb(37, 156, 37);
+}
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  color: #fff;
+}
+.search-bar input {
+  border-radius: 10px;
+  border: none;
+  padding: 5px 10px;
+}
+.search-bar input:focus {
+  border-radius: 10px;
+  border: none;
+  outline: 0px;
+}
+.search-bar button{
+  color: rgb(37, 156, 37);
+  background: none;
+  border: none;
+}
+@media screen and (max-width: 930px){
+  .hamb-menu{
+    display: block;
+  }
+  .nav-bar .inactive{
+    display: none;
+  }
+  .nav-bar .active {
+z-index: 9999;
+position: absolute;
+width: 100%;
+padding: 50px;
+left: -20px;
+right: 0;
+top: 8%;
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: rgb(0, 0, 0);
+border: 2px solid white;
+border-radius: 5px;
+
+  }
+}
+
+#destaques{
+  background-color: rgb(29, 29, 29);
+  padding: 40px;
+}
+#destaques button{
+  margin-left: 50px;
+  font-size: 60px;
+  background: none;
+  border: 10px solid black;
+  padding: 5px;
+  color: #fff;
+}
+#destaques h1{
+  margin-bottom: 30px;
+  color: #fff;
+  text-align: center;
+  font-size: 25px;
+}
+#destaques .card-video{
+  padding: 0 200px;
+}
+#destaques .card-video .video{
+  flex: 1;
+  display: block;
+  margin: 20px auto;
+}
+#destaques .card-video .video img {
+  height: 500px;
+  /* width: 90%; */ 
+   margin-left: 40px;
+}
+#destaques .card-video .video-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap: 5px;
+
+}
+#destaques .card-video .video-info h2 {
+  font-size: 30px;
+  color: #fff;
+}
+#destaques .card-video .video-info p{
+  font-size: 20px;
+  color: rgb(175, 175, 175);
+}
+
+@media screen and (max-width: 890px) {
+
+  #destaques {
+    padding: 0;
+  }
+
+  #destaques .card-video .video {
+    width: 100%;
+    margin: 0;
+  }
+
+  #destaques .card-video .video img {
+    height: auto;
+    width: 80%;
+  }
+}
+#lancamentos,
+#plataformas {
+  padding: 2% 10%;
+  color: #fff;
+  background-color: black;
+}
+
+#lancamentos .lanc-info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#lancamentos .lanc-info-container h1,
+#plataformas h1,
+#publishers h1 {
+  text-align: center;
+}
+
+#lancamentos .lanc-info-container .filtros {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+#lancamentos .lanc-info-container .filtros select {
+  margin-left: 50px;
+  min-height: 40px;
+  min-width: 150px;
+}
+
+#lancamentos .lanc-container {
+  margin: 50px 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  gap: 20px;
+}
+
+#lancamentos .lanc-container .mini-card {
+  flex: 1;
+  padding: 20px;
+}
+
+#lancamentos .lanc-container .mini-card img {
+  /* height: 200px; */
+  max-width: 300px;
+  align-self: stretch;
+}
+
+#loadMoreGamesButton:disabled {
+  background-color: var(--gray1);
+  cursor: not-allowed;
+}
+#lancamentos button,
+#plataformas button,
+#publishers button{
+ border-radius: 15px;
+ padding: 10px;
+ color: rgb(56, 170, 56);
+ font-weight: bold;
+ cursor: pointer;
+}
+#lancamentos button:hover,
+#plataformas button:hover,
+#publishers button:hover {
+  background-color: green;
+  color:#fff;
+}
+
+.plat-container {
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.plat-card {
+  padding: 50px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  
+
+
+  /* gap: 20px; */
+}
+.plat-card img{
+  width: 300px;
+  height: 300px;
+}
+@media screen and (max-width: 890px) {
+  .plat-container {
+    /* flex-direction: column; */
+
+    margin: 0;
+  }
+
+  .plat-card {
+    padding: 0;
+    width: 80%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .plat-container {
+    flex-direction: column;
+
+    margin: 0;
+  }
+
+  .plat-card {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .image-container {
+    display: flex;
+    align-items: flex-start;
+    width: 10%;
+  }
+
+  .image-container img {
+    max-width: 100px;
+  }
+}
+
+#publishers {
+  padding: 2% 8%;
+  background-color: var(--secondary-purple);
+  color: var(--greenb);
+}
+
+#publishers .plat-card a {
+  color: #fff;
+}
+#about {
+  padding: 2% 10%;
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(29, 29, 29);
+}
+  
+  .about-container {
+    flex: 2;
+  }
+  
+  .about-container p,
+  .editorial-container p,
+  .editorial-container h3 {
+    margin-top: 5%;
+    color: #fff;
+  }
+  .about-container h1{
+    color:green;
+  }
+  
+  .editorial-container p {
+    color: white;
+  }
+  
+  .editorial-container h3 {
+    font-size: 30px;
+    color: white;
+  }
+  
+  .editorial-container {
+    flex: 1;
+    color: green;
+
+  }
+  
+  .redes-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    color: green;
+  }
+  
+  .redes-container a {
+    text-decoration: none;
+    color: #fff;
+    color: green;
+  }
+  
+  .redes-container i {
+    font-size: 40px;
+  }
+  
+  @media screen and (max-width: 890px) {
+    #about {
+      flex-direction: column;
+    }
+  }
+  
+  footer {
+    background-color: black;
+    height: 100px;
+    text-align: center;
+    padding-top: 16px;
+    font-size: 20px;
+    color: white;
+  }
+  
+  footer address a {
+    text-decoration: none;
+    color: white;
+  }
+  @media screen and (max-width: 425px){
+    #destaques{
+      display: none;
+    }
+    #ordem{
+      display: none;
+    }
+    .plat-card img{
+     width: 500px;
+     height: 100px;
+    margin-left: 3em;
+    }
+  }
